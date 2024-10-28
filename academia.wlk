@@ -1,5 +1,5 @@
 /** Reemplazar por la solución del enunciado */
-object academia{
+class Academia{
 	const property muebles = #{}
 
 	method puedeGuardarEnLaAcademia(cosa){
@@ -15,7 +15,7 @@ object academia{
 
 class Cosa {
 	const marca   = x
-	const volumen = 2
+	const property volumen = 2
 
 	method esMagico(){
 		return 
@@ -30,19 +30,28 @@ class Cosa {
 class Mueble {
 	var property cosas = #{}
 
+	method guardarObjeto(cosa){
+		if (self.puedeGuardar(cosa)){
+			cosas.add(cosa)
+		}
+	}
 	method puedeGuardar(cosa){
-		return cosas.any({elemento => elemento == cosa})// no se si está bien esto
+		return cosas.contains(cosa)// no se si está bien esto
 	}
 }
 
 class Baul inherits Mueble{
+	const property volumenMax = 10
 
 	override method puedeGuardar(cosa) {
 		return super(cosa) && self.haySuficienteEspacio()  
 	}
 	
 	method haySuficienteEspacio(){
-		return true
+		return volumenMax > self.volumenActual() + 1
+	}
+	method volumenActual(){
+		return cosas.sum({cosa => cosa.volumen() })
 	}
 }
 
