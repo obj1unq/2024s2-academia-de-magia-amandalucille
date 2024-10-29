@@ -2,27 +2,24 @@
 class Academia{
 	const property muebles = #{}
 
-	method puedeGuardarEnLaAcademia(cosa){
-		return self.hayAlMenosUnMueble() && not (yaEstaGuardado(cosa))
-	}
-	method hayAlMenosUnMueble(){
-		return not (muebles.isEmpty())
-	}
 	method yaEstaGuardado(cosa){
-		return muebles.any({mueble => mueble.puedeGuardar()})
+		return muebles.any({mueble => mueble.tiene(cosa)})
 	}
+
+	method puedeGuardarEnLaAcademia(cosa){
+		return self.hayAlMenosUnMuebleParaGuardar(cosa) && (!self.yaEstaGuardado(cosa))
+	}
+	method hayAlMenosUnMuebleParaGuardar(cosa){
+		return muebles.any({m => m.puedeGuardar(cosa)})
+	}
+	
 }
 
 class Cosa {
-	const marca   = cuchuflito
+	const marca            = cuchuflito //cuchiflito será object al igual que otras marcas
 	const property volumen = 2
-
-	method esMagico(){
-		return 
-		}
-	method esReliquia(){
-		return 
-		}
+	const esMagico         = true
+	const esReliquia       = true
 	
 	  
 }
@@ -31,12 +28,10 @@ class Mueble {
 	var property cosas = #{}
 
 	method guardarObjeto(cosa){
-		if (self.puedeGuardar(cosa)){
-			cosas.add(cosa)
-		}
+		
 	}
-	method puedeGuardar(cosa){
-		return cosas.contains(cosa)// no se si está bien esto
+	method tiene(cosa){
+		return cosas.contains(cosa)
 	}
 }
 
