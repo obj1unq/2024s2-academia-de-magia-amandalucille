@@ -9,12 +9,12 @@ class Academia{
 		return not (muebles.isEmpty())
 	}
 	method yaEstaGuardado(cosa){
-		muebles.any({mueble => mueble.puedeGuardar()})
+		return muebles.any({mueble => mueble.puedeGuardar()})
 	}
 }
 
 class Cosa {
-	const marca   = x
+	const marca   = cuchuflito
 	const property volumen = 2
 
 	method esMagico(){
