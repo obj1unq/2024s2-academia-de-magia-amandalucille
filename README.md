@@ -56,8 +56,7 @@ La academia tiene:
 - un armario convencional con la pelota de fútbol que puede contener hasta 2 elementos en total 
   (le queda espacio para un elemento más).
 
-*Nota: Tener en cuenta que éste es solo un escenario posible. Podría haber otro donde haya por ejemplo, 
-otro baúl más de otra capacidad, más gabinetes, etc.*
+*Nota: Tener en cuenta que éste es solo un escenario posible. Podría haber otro donde haya por ejemplo, otro baúl más de otra capacidad, más gabinetes, etc.*
 
 ### Requerimientos:
 
